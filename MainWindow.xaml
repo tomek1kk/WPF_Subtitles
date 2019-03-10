@@ -5,19 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Subtitles"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="350" Width="400">
     <Grid Margin="10,0,-6.4,13">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label FontSize="30" Grid.Row="1">Plik do modyfikacji:</Label>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" RenderTransformOrigin="0.641,0.681">
-            <Label FontSize="20" Content="Przesunięcie napisów:"/>
-            <TextBox Width="100" Height="100" Text="Cos"/>
+        <Label FontSize="30" Grid.Row="1" HorizontalAlignment="Center">Plik do modyfikacji:</Label>
+        <TextBox Grid.Row="2" FontSize="25"></TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="4">
+            <Label FontSize="20" Content="Przesunięcie napisów:  "/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="txtNum"  Margin="5,5,0,5" Width="50" Text="0" />
+                <Button Name="cmdUp"  Margin="5,5,0,5" Content="˄" Width="20"  />
+                <Button Name="cmdDown" Margin="0,5,0,5"  Content="˅" Width="20" />
+            </StackPanel>
         </StackPanel>
+        <Button Grid.Row="6">Click</Button>
     </Grid>
 </Window>
