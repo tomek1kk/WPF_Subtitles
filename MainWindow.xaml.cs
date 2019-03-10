@@ -44,7 +44,23 @@ namespace WPF_Subtitles
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SubtitlesConverter.Convert(TitleIn.Text, Int32.Parse(txtNum.Text), TitleOut.Text);
+            bool excp = true;
+            try
+            {
+                SubtitlesConverter.Convert(TitleIn.Text, Int32.Parse(txtNum.Text), TitleOut.Text, ref excp);
+                if (excp == false)
+                {
+                    MainButton.Background = System.Windows.Media.Brushes.LightGreen;
+                    MessageBox.Show("Subtitles successfully modified!");
+                }
+                else
+                    MainButton.Background = System.Windows.Media.Brushes.IndianRed;
+            }
+            catch (Exception ee)
+            {
+                MainButton.Background = System.Windows.Media.Brushes.IndianRed;
+                System.Windows.MessageBox.Show(ee.Message + "\n ms must be int!");
+            }
         }
     }
 }

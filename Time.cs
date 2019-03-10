@@ -68,24 +68,7 @@ namespace WPF_Subtitles
             return wynik;
         }
 
-        //private void MyReplace(ref string source, int startInd, int x)
-        //{
-        //    string tmp = source.Remove(startInd, x.ToString("D2").Length);
-        //    string tmp2 = tmp.Insert(startInd, x.ToString("D2"));
-        //    source = tmp2;
-        //}
 
-        //private void MyReplace2(ref string source, int startInd, int x)
-        //{
-        //    string tmp = source.Remove(startInd, x.ToString("D3").Length);
-        //    string tmp2 = tmp.Insert(startInd, x.ToString("D3"));
-        //    source = tmp2;
-        //}
-
-        public void ToFile()
-        {
-
-        }
         private void Repair()
         {
             if (miliseconds > 999)

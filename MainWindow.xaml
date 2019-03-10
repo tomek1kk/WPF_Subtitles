@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Subtitles"
         mc:Ignorable="d"
-        Title="MainWindow" Height="420" Width="400">
+        Title="SubtitlesConverter" Height="420" Width="400">
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="15"></RowDefinition>
@@ -31,6 +31,6 @@
                 <Button Name="cmdDown" Margin="0,5,0,5"  Content="˅" Width="20" Click="cmdDown_Click"/>
             </StackPanel>
         </StackPanel>
-        <Button Grid.Row="8" FontSize="30" Width="370" Click="Button_Click">Convert</Button>
+        <Button Grid.Row="8" Name="MainButton" FontSize="30" Width="370" Click="Button_Click">Convert</Button>
     </Grid>
 </Window>

@@ -4,33 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows;
 
 namespace WPF_Subtitles
 {
     class SubtitlesConverter
     {
-        public static void Convert(string path, int ms, string outpath)
+        public static void Convert(string path, int ms, string outpath, ref bool excp)
         {
             string line;
 
-            StreamReader streamReader = new StreamReader(path);
-            StreamWriter streamWriter = new StreamWriter(outpath);
-
-            while ((line = streamReader.ReadLine()) != null)
+            try
             {
-                if (Time.CheckIfItsTime(line) == true)
+                StreamReader streamReader = new StreamReader(path);
+                if (outpath == "")
+                    outpath = "out.srt";
+                StreamWriter streamWriter = new StreamWriter(outpath);
+
+                while ((line = streamReader.ReadLine()) != null)
                 {
-                    Time time = new Time(line);
-                    time.Move(ms);
-                    streamWriter.WriteLine(time.ToString());
+                    if (Time.CheckIfItsTime(line) == true)
+                    {
+                        Time time = new Time(line);
+                        time.Move(ms);
+                        streamWriter.WriteLine(time.ToString());
+                    }
+                    else
+                    {
+                        streamWriter.WriteLine(line);
+                    }
                 }
-                else
-                {
-                    //System.Windows.MessageBox.Show(line);
-                    streamWriter.WriteLine(line);
-                }
+                excp = false;
+                streamWriter.Close();
             }
-            streamWriter.Close();
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                excp = true;
+            }
+
+
 
         }
     }
