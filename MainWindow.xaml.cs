@@ -41,5 +41,10 @@ namespace WPF_Subtitles
 
             txtNum.Text = currentMS.ToString();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SubtitlesConverter.Convert(TitleIn.Text, Int32.Parse(txtNum.Text), TitleOut.Text);
+        }
     }
 }

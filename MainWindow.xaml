@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Subtitles"
         mc:Ignorable="d"
-        Title="MainWindow" Height="320" Width="400">
+        Title="MainWindow" Height="420" Width="400">
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="15"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
@@ -16,17 +18,19 @@
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
- 
-        <Label FontSize="30" Grid.Row="1" HorizontalAlignment="Center">Plik do modyfikacji:</Label>
-        <TextBox Grid.Row="2" FontSize="25" HorizontalAlignment="Center" Width="380"></TextBox>
-        <StackPanel Orientation="Horizontal" Grid.Row="4">
-            <Label FontSize="20" Content="Przesunięcie napisów(ms):  "/>
+
+        <Label FontSize="30" Grid.Row="1" HorizontalAlignment="Center">Input file name:</Label>
+        <TextBox Name="TitleIn" Grid.Row="2" FontSize="25" HorizontalAlignment="Center" Width="370"></TextBox>
+        <Label FontSize="30" Grid.Row="3" HorizontalAlignment="Center">Output file name:</Label>
+        <TextBox Name="TitleOut" Grid.Row="4" FontSize="25" HorizontalAlignment="Center" Width="370"></TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="6">
+            <Label FontSize="20" Content="  Subtitles shift(ms):  "/>
             <StackPanel Orientation="Horizontal">
                 <TextBox Name="txtNum"  Margin="5,5,0,5" Width="65" FontSize="20" Text="0" />
                 <Button Name="cmdUp"  Margin="5,5,0,5" Content="˄" Width="20" Click="cmdUp_Click" />
                 <Button Name="cmdDown" Margin="0,5,0,5"  Content="˅" Width="20" Click="cmdDown_Click"/>
             </StackPanel>
         </StackPanel>
-        <Button Grid.Row="6" FontSize="30" Width="370">Convert</Button>
+        <Button Grid.Row="8" FontSize="30" Width="370" Click="Button_Click">Convert</Button>
     </Grid>
 </Window>
