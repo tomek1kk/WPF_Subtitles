@@ -24,5 +24,22 @@ namespace WPF_Subtitles
         {
             InitializeComponent();
         }
+
+        private void cmdUp_Click(object sender, RoutedEventArgs e)
+        {
+            double currentMS;
+            double.TryParse(txtNum.Text, out currentMS);
+            currentMS += 1000;
+
+            txtNum.Text = currentMS.ToString();
+        }
+        private void cmdDown_Click(object sender, RoutedEventArgs e)
+        {
+            double currentMS;
+            double.TryParse(txtNum.Text, out currentMS);
+            currentMS -= 1000;
+
+            txtNum.Text = currentMS.ToString();
+        }
     }
 }
